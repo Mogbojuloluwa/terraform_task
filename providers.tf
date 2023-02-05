@@ -5,10 +5,16 @@ terraform {
       version = "~> 4.0"
     }
 
-    namedotcom = {
-      source = "lexfrei/namedotcom"
-      version = "1.2.4"
+    terraform {
+  required_providers {
+    namecheap = {
+      source  = "namecheap/namecheap"
+      version = ">= 2.0.0"
     }
+  }
+}
+
+
   }
 }
 
@@ -16,7 +22,9 @@ provider "aws" {
   region = var.region
 }
 
-provider "namedotcom" {
-  token = var.token
-  username = var.username
+provider "namecheap" {
+  user_name   = var.namecheap_api_username
+  api_user    = var.namecheap_api_username
+  api_key     = var.namecheap_api_key
+  use_sandbox = false
 }
