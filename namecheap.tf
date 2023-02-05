@@ -1,4 +1,4 @@
-resource "namedotcom_domain_records" "domain_name" {
+resource "namecheap_domain_records" "domain_name" {
   domain_name = var.domain_names.domain_name
   nameservers = [
     aws_route53_zone.main.name_servers[0],
