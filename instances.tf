@@ -15,23 +15,23 @@ data "aws_ami" "latest_ubuntu_image" {
 
 
 
-resource "tls_private_key" "main" {
+resource "tls_private_key" "gboju" {
   algorithm = "RSA"
   rsa_bits = 4096
 }
 
-resource "aws_key_pair" "generated_key" {
+resource "aws_key_pair" "ssh_key" {
   key_name = var.ssh_key
-  public_key = tls_private_key.main.public_key_openssh
+  public_key = tls_private_key.gboju.public_key_openssh
 }
 
 resource "local_file" "terraform_key" {
-  content = tls_private_key.main.private_key_pem
+  content = tls_private_key.gboju.private_key_pem
   filename = "${var.ssh_key}.pem"
   file_permission = "0400"
 }
 
-resource "aws_instance" "main" {
+resource "aws_instance" "gboju_instance" {
   for_each                     = aws_subnet.subnets
 
   ami                           = data.aws_ami.latest_ubuntu_image.id
@@ -49,9 +49,9 @@ resource "aws_instance" "main" {
 
 resource "null_resource" "ansible-playbook" {
   provisioner "local-exec" {
-    command = "ansible-playbook --private-key ${var.ssh_key}.pem main.yml"
+    command = "ansible-playbook --private-key ${var.ssh_key}.pem ansible.yml"
   }
 
-  depends_on = [aws_instance.main]
+  depends_on = [aws_instance.gbojus_instance]
 }
 
