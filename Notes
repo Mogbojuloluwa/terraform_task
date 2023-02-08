@@ -14,18 +14,18 @@ The task is to use terraform to create 3 EC2 Instances and put them behind an EL
 
     ### Terraform image
 
-
-    ![terraform install](/IMAGES/terraform%20installation.png)
+ 
+ ![terraform install](/IMAGES/terraform%20installation.png)
 
 
 AWS is the cloud provider to be used for this task.The AWS provider documentation on terrafaorm  is well detailed and contains technical guidelines on how to create a VPC, Loadbalancer, Instances among other resources. 
 
     For this task, the resources created are as stated below;
-    VPC
-    EC2 Instances
-    Target group
-    Load balancer
-    create a hosted zone for our domain in route53
+    1. VPC(with Public subnets and route-tables)
+    2. EC2 Instances
+    3. Target group
+    4. Load balancer
+    5. Create a hosted zone for our domain in route53
     Create name servers with terraform as well and configure the DNS to be added to our preferred domain name site. i would be using namecheap for the purpose of this prohect. 
 
     In writing our code for terraform , I made use of variables. This is because one of goals of devops is continuity and efficiency in the development pprocess. Using variables is a good way to ensure the re-usability of code.
@@ -50,35 +50,36 @@ AWS is the cloud provider to be used for this task.The AWS provider documentatio
 
     All the necessary files have been created. The first command to provision after installation is terraform init
 
-    ![terraform init](/IMAGES/terraform%20init.png)
+![terraform init](/terraform_task/IMAGES/terraform%20init.png)
 
     terraform plan - This shows the resources that would be added
 
-    ![terraform plan](/terraform_task/IMAGES/yesimg.png)
+![terraform plan](/terraform_task/IMAGES/yesimg.png)
 
-    terraform validate- This double checks that the configuration is right. 
-    ![validate](/IMAGES/terraform%20validate.png)
+terraform validate- This double checks that the configuration is right. 
+ ![validate](/terraform_task/IMAGES/terraform%20validate.png)
 
     Terraform VPC
+   
+   
+   ![VPC](/terraform_task/IMAGES/VPC.png)
 
-    ![VPC](/IMAGES/VPC.png)
+    
+![instances](/terraform_task/IMAGES/instances.png)
 
-    ![Instances](/IMAGES/instances.png)
-
-    ![target group](/IMAGES/target%20groups.png)
-
-    ![load balancer](/IMAGES/load%20balancers.png)
-
-    ![server1](/IMAGES/server31.png)
-
-    ![server2](/IMAGES/server47.png)
-
-    ![server3](/IMAGES/server95.png)
+![target group](/terraform_task/IMAGES/target%20groups.png)
 
 
+![load balancer](/terraform_task/IMAGES/load%20balancers.png)
+
+![server1](/terraform_task/IMAGES/server31.png)
+
+![server2](/terraform_task/IMAGES/server47.png)
+
+![server3](/terraform_task/IMAGES/server95.png)
 
 
 
-    Then terraform plan to show all that would be done. 
 
-    Terraform validate to be sure your code is configured properly. being that i want the shown resources to be added, I would go ahead to apply and then create the resources.     
+
+     
