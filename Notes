@@ -12,10 +12,11 @@ The task is to use terraform to create 3 EC2 Instances and put them behind an EL
     terraform. The terraform documentation has easily given atutorial on how this can be done. 
     The command in the image below is the code for installation.
 
-    ### Terraform image
+Terraform image
+
 
  
- ![terraform install](/IMAGES/terraform%20installation.png)
+ ![terraform install](/terraform_task/IMAGES/terraform%20installation.png)
 
 
 AWS is the cloud provider to be used for this task.The AWS provider documentation on terrafaorm  is well detailed and contains technical guidelines on how to create a VPC, Loadbalancer, Instances among other resources. 
@@ -50,6 +51,7 @@ AWS is the cloud provider to be used for this task.The AWS provider documentatio
 
     All the necessary files have been created. The first command to provision after installation is terraform init
 
+
 ![terraform init](/terraform_task/IMAGES/terraform%20init.png)
 
     terraform plan - This shows the resources that would be added
@@ -57,12 +59,15 @@ AWS is the cloud provider to be used for this task.The AWS provider documentatio
 ![terraform plan](/terraform_task/IMAGES/yesimg.png)
 
 terraform validate- This double checks that the configuration is right. 
+
+
+![terraform](/terraform_task/IMAGES/VPC.png)
+
  ![validate](/terraform_task/IMAGES/terraform%20validate.png)
 
     Terraform VPC
-   
-   
-   ![VPC](/terraform_task/IMAGES/VPC.png)
+
+![VPC](/terraform_task/IMAGES/VPC.png)
 
     
 ![instances](/terraform_task/IMAGES/instances.png)
