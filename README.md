@@ -1,3 +1,86 @@
-# terraform_task
+# Terraform task 
+##  terrfa 
 
-The task is to use terraform to configure an AWS infrastructure to create 3 instances, put them behind an elb.
+
+The task is to use terraform to create 3 EC2 Instances and put them behind an ELB. TheIP adresses of the Instances should be exported to a file host called host-inventory. Create an ansible scrippt that sets up apache, sets timezone and displays a simple HTML page to identify each instance. 
+
+
+    Terraform is a IAC tool to automate the provisioning of cloud infrastructure. It works across multiple cloud providers.
+    Terraform code is written with Hashicorp Configuration Language. The files end with .tf
+
+    For this task, a couple of p are neccesssary in order to be able to carry out the required configurations.  
+
+    My first step was to install terraform on my VM. Terraform ddocumentation has a detailed video and tutorial on this. It is a simple step on linux.
+    terraform. The terraform documentation has easily given atutorial on how this can be done. 
+    The command in the image below is the code for installation.
+
+    ### Terraform image
+
+
+    ![terraform install](/IMAGES/terraform%20installation.png)
+
+
+AWS is the cloud provider to be used for this task.The AWS provider documentation on terrafaorm  is well detailed and contains technical guidelines on how to create a VPC, Loadbalancer, Instances among other resources. 
+
+    For this task, the resources created are as stated below;
+    VPC
+    EC2 Instances
+    Target group
+    Load balancer
+    create a hosted zone for our domain in route53
+    Create name servers with terraform as well and configure the DNS to be added to our preferred domain name site. i would be using namecheap for the purpose of this prohect. 
+
+    In writing our code for terraform , I made use of variables. This is because one of goals of devops is continuity and efficiency in the development pprocess. Using variables is a good way to ensure the re-usability of code.
+
+    Our terraform.tfvars file is where the variables would be given specific values. 
+
+    Teffarorm.vars file would not be included here, as it it contains sensitive info such as the AWS access keys and namecheap api keys. 
+
+    provider.tf is the file that contains the code to provision AWS resource into the terminal. The version as well as region where the resources should be configured are defined there.
+
+    The VPC.tf file is where the code with which the VPC created is stored . A logical was created and used instead of the default one. 
+    Instances.tf is where the EC2 instances. Three different instances are created and put in different availabilty zones. 
+
+    The load balancer file contains the code for building the target group, load balancer and attaching all three instances to the load balancer. 
+
+    ansible.yml contains the yaml code to deploy our simple application on the apache webserver. 
+
+    Route53 file is where the code for configuring the hosted zone is stored. 
+    The name cheap.tf file
+
+    The namecheap.tf file maps the DNS to the maincheap domain records. 
+
+    All the necessary files have been created. The first command to provision after installation is terraform init
+
+    ![terraform init](/IMAGES/terraform%20init.png)
+
+    terraform plan - This shows the resources that would be added
+
+    ![terraform plan](/IMAGES/yesimg.png)
+
+    terraform validate- This double checks that the configuration is right. 
+    ![validate](/IMAGES/terraform%20validate.png)
+
+    Terraform VPC
+
+    ![VPC](/IMAGES/VPC.png)
+
+    ![Instances](/IMAGES/instances.png)
+
+    ![target group](/IMAGES/target%20groups.png)
+
+    ![load balancer](/IMAGES/load%20balancers.png)
+
+    ![server1](/IMAGES/server31.png)
+
+    ![server2](/IMAGES/server47.png)
+
+    ![server3](/IMAGES/server95.png)
+
+
+
+
+
+    Then terraform plan to show all that would be done. 
+
+    Terraform validate to be sure your code is configured properly. being that i want the shown resources to be added, I would go ahead to apply and then create the resources.     
