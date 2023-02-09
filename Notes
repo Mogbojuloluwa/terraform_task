@@ -81,7 +81,9 @@ terraform validate- This double checks that the configuration is right.
 
 ![server2](/terraform_task/IMAGES/server47.png)
 
-![server3](/terraform_task/IMAGES/server95.png)
+![server3](/terraform_task/IMAGES/server95.png) 
+
+Terraform.
 
 
 
